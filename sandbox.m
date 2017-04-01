@@ -15,6 +15,8 @@ r = corr(X,Y);
 MI_ = -0.5*log(1-r^2);
 Z = [ X Y ];
 %%
-MI = MI_KNN(X,Y,20);
+tic
+MI = MI_KNN(X,Y,2);
+toc
 
 disp(sprintf('True MI: %.4f, KNN based MI: %.4f', MI_, MI))
