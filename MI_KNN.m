@@ -1,4 +1,6 @@
 function [ MI ] = MI_KNN( X,Y,k )
+% MI_KNN - Find the mutual information between X and Y using a K-nearest
+% neighbor estimator
 
 %%%%%%%%%%%%%%%%%%%%
 % Find the distance to kth nearest neighbor in the L_infinity distance (aka
