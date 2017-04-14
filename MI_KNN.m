@@ -23,7 +23,7 @@ Ny = getnx(Y,znearest);
 % Equation 8 from Kraskov et al. 2004
 %%%%%%%%%%%%%%%%%%%%
 avg = mean(psi(Nx+1) + psi(Ny+1));
-MI = psi(k-1) + psi(N) - avg;
+MI = max(psi(k-1) + psi(N) - avg,0);
 
 end
 

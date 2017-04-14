@@ -14,6 +14,9 @@ X = mvnrnd(mu,sigma,N);
 %[~,p] = size(X);
 %labels = {'X1', 'X2', 'X3'};
 k = 2;
+
+%%
+graph_mis(data, labels);
 %% Calculate mutual MI
 mis = zeros(p,p);
 
