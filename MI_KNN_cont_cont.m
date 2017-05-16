@@ -24,6 +24,5 @@ Ny = getnx(Y,znearest);
 %%%%%%%%%%%%%%%%%%%%
 avg = mean(psi(Nx+1) + psi(Ny+1));
 MI = max(psi(k-1) + psi(N) - avg, 0);
-
 end
 
