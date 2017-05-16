@@ -31,7 +31,7 @@ fprintf('True MI: %.4f, KNN based MI: %.4f', MI_true, MI)
 %%%%%%%%%%%%%%%%%
 % Should be zero
 N = 30E3; nlevel = 3; k = 100;
-Y = randi(nlevel, N, 1);
+Y = randi(nlevel, N, 1)-1;
 X = randn(N,1);
 
 

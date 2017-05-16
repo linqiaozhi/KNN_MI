@@ -2,6 +2,9 @@ function [ MI ] = MI_KNN_cat_cat( X,Y )
 %MI_KNN_cat_cat - Estimates MI between two categorical variables.  Does not
 %actually use KNN.
 %%
+%Start from 1
+X = X - min(X) +1;
+Y = Y - min(Y) +1;
 
 N = length(X);
 X_tbl = tabulate(X); X_freq = X_tbl(:,3)*0.01;
