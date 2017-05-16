@@ -1,7 +1,7 @@
 function [ MI ] = MI_KNN_cont_cat( X,Y,k )
-    %X is continuous
-    %Y is categorical
- 
+% MI_KNN_cat_cat - Estimates MI between continuous variable X and 
+% categorical variable Y.  Y should be a vector of integers starting from
+% 1.
     %%
     Y_tbl = tabulate(Y);
     Y_freqs = Y_tbl(:,3)*0.01;

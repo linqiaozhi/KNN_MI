@@ -1,6 +1,6 @@
 function [ MI ] = MI_KNN_cat_cat( X,Y )
-%UNTITLED7 Summary of this function goes here
-%   Detailed explanation goes here
+%MI_KNN_cat_cat - Estimates MI between two categorical variables.  Does not
+%actually use KNN.
 %%
 
 N = length(X);

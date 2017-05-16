@@ -40,19 +40,32 @@ entropyX = MI_KNN_cont_cont(X,X,k);
 entropyY = MI_KNN_cat_cat(Y,Y);
 
 fprintf('True MI: %0.4f, KNN based MI: %.4f, H(X) = %.4f, H(Y) = %.4f\n', 0, MI, entropyX, entropyY);
-%%
+
+% Should be non-zero
 
 N = 5E3; nlevel = 3; k = 2;
 Y = randi(nlevel, N, 1);
 X = randn(N,1);  X(Y== nlevel) = X(Y==nlevel) + 3;
-MI_KNN_cont_cat(X,Y,k)
 
-X(Y== nlevel) = X(Y==nlevel) + 3;
+MI = MI_KNN_cont_cat(X,Y,k);
+entropyX = MI_KNN_cont_cont(X,X,k);
+entropyY = MI_KNN_cat_cat(Y,Y);
 
-%%
+fprintf('True MI: nonzero, KNN based MI: %.4f, H(X) = %.4f, H(Y) = %.4f\n',  MI, entropyX, entropyY);
+
+%%%%%%%%%%%%%%%%%
+%% Categorical vs. Categorical
+%%%%%%%%%%%%%%%%%
+
 N = 5E3; 
 X = randi(5, N, 1);
 Y = randi(3, N, 1);
+
+MI = MI_KNN_cat_cat(X,Y);
+fprintf('True MI: %.4f, MI: %.4f\n', 0, MI);
+
 X(Y== 1) = 2;
 X(Y== 3) = 1;
-MI_KNN_cat_cat(X,X);
+MI = MI_KNN_cat_cat(X,Y);
+fprintf('True MI: nonzero, MI: %.4f\n',  MI);
+
