@@ -1,4 +1,4 @@
-function [ MI ] = MI_KNN( X,Y,k )
+function [ MI ] = MI_KNN_cont_cont( X,Y,k )
 % MI_KNN - Find the mutual information between X and Y using a K-nearest
 % neighbor estimator
 
@@ -23,7 +23,7 @@ Ny = getnx(Y,znearest);
 % Equation 8 from Kraskov et al. 2004
 %%%%%%%%%%%%%%%%%%%%
 avg = mean(psi(Nx+1) + psi(Ny+1));
-MI = psi(k-1) + psi(N) - avg;
+MI = max(psi(k-1) + psi(N) - avg, 0);
 
 end
 
