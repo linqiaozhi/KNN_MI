@@ -32,7 +32,7 @@ fprintf('True MI: %.4f, KNN based MI: %.4f', MI_true, MI)
 % Should be zero
 N = 30E3; nlevel = 3; k = 100;
 Y = randi(nlevel, N, 1)-1;
-X = randn(N,1);
+X = randn(N,1)*100;
 
 
 MI = MI_KNN_cont_cat(X,Y,k);
@@ -41,17 +41,26 @@ entropyY = MI_KNN_cat_cat(Y,Y);
 
 fprintf('True MI: %0.4f, KNN based MI: %.4f, H(X) = %.4f, H(Y) = %.4f\n', 0, MI, entropyX, entropyY);
 
-% Should be non-zero
+%% Should be non-zero
 
 N = 5E3; nlevel = 3; k = 2;
 Y = randi(nlevel, N, 1);
-X = randn(N,1);  X(Y== nlevel) = X(Y==nlevel) + 3;
+X = randn(N,1)*100;  X(Y== nlevel) = X(Y==nlevel) + 1000;
 
 MI = MI_KNN_cont_cat(X,Y,k);
 entropyX = MI_KNN_cont_cont(X,X,k);
 entropyY = MI_KNN_cat_cat(Y,Y);
 
 fprintf('True MI: nonzero, KNN based MI: %.4f, H(X) = %.4f, H(Y) = %.4f\n',  MI, entropyX, entropyY);
+
+
+%% With integer valued continuous variables
+MI_KNN_cont_cat(round(X),Y,k)
+X = round(X) + randn(N,1)*1;
+
+MI_KNN_cont_cat(X,Y,k)
+
+
 
 %%%%%%%%%%%%%%%%%
 %% Categorical vs. Categorical

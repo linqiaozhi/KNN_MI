@@ -24,6 +24,7 @@ for i=1:nlevel,
     MI = MI + f_y_i*mean(log(f_y_i_cond./f_x_i));
 end
 
+MI = max(MI, 0);
 
 end
 
