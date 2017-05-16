@@ -43,7 +43,7 @@ fprintf('True MI: %0.4f, KNN based MI: %.4f, H(X) = %.4f, H(Y) = %.4f\n', 0, MI,
 
 %% Should be non-zero
 
-N = 5E3; nlevel = 3; k = 2;
+N = 5E3; nlevel = 3; k = 50;
 Y = randi(nlevel, N, 1);
 X = randn(N,1)*100;  X(Y== nlevel) = X(Y==nlevel) + 1000;
 
@@ -60,6 +60,12 @@ X = round(X) + randn(N,1)*1;
 
 MI_KNN_cont_cat(X,Y,k)
 
+%% Entropy of different normals
+X = randn(N,1)*100; 
+Y = randn(N,1)*80 + 150; 
+k = 100;
+entropyX = MI_KNN_cont_cont(X,X,k)
+entropyY = MI_KNN_cont_cont(Y,Y,k)
 
 
 %%%%%%%%%%%%%%%%%
