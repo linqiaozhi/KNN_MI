@@ -10,10 +10,11 @@ from the paper.
 Please note these codes are under development and have not been thoroughly tested.
 
 * MI_KNN_cont_cont.m: Calculate mutual information of two continuous variables
+* getnx.m: Helper function for MI_KNN_cont_cont.m
 * MI_KNN_cont_cat.m: Calculate mutual information of categorical and continuous variables
 * MI_KNN_cat_cat.m: Calculate mutual information of categorical and categorical variables
 * sandbox.m: Test cases for each of the above 
-* getnx.m: Helper function for MI_KNN_cont_cont.m
+* structure_learning.m: Example code for producing structure learning style MI graphs
 
 
 ## References

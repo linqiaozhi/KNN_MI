@@ -15,14 +15,13 @@ X = mvnrnd(mu,sigma,N);
 %labels = {'X1', 'X2', 'X3'};
 k = 2;
 
-%%
-graph_mis(data, labels);
+
 %% Calculate mutual MI
 mis = zeros(p,p);
 
 for i=1:p
     for j =(i+1):p
-        mis(i,j) = MI_KNN(X(:,i), X(:,j), k);
+        mis(i,j) = MI_KNN_cont_cont(X(:,i), X(:,j), k);
     end
 end
 for i=1:p
