@@ -18,7 +18,9 @@ for i=1:nlevel,
     
     N_cond = sum(Y==i);
     if (N_cond/2 < k),
-        error(sprintf('The number of elements with Y= %d is %d, which is less than 2*k', i, N_cond));
+        fprintf('Error: The number of elements with Y= %d is %d, which is less than 2*k.  Skipping this one...', i, N_cond);
+        MI = 0;
+        return;
     end
     [~, D_cond] = knnsearch(X(Y==i),X(Y==i), 'K',k);
     f_y_i_cond = k./(2*N_cond.*D_cond(:,k));
