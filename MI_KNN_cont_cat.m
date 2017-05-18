@@ -9,7 +9,7 @@ Y = Y - min(Y) +1;
 Y_tbl = tabulate(Y);
 Y_freqs = Y_tbl(:,3)*0.01;
 
-k = min(k_in, min(Y_tbl(:,2))/2 );
+k = min(k_in, round(min(Y_tbl(:,2))/2) );
 if (k_in ~= k) 
     fprintf('Warning: Changing K to be %d\n',  k);
 end
