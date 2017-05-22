@@ -35,7 +35,7 @@ Y = randi(nlevel, N, 1)-1;
 X = randn(N,1)*100;
 
 
-MI = MI_KNN_cont_cat(X,Y,k);
+MI = MI_KNN_cont_cat(X,Y);
 entropyX = MI_KNN_cont_cont(X,X,k);
 entropyY = MI_KNN_cat_cat(Y,Y);
 
@@ -43,7 +43,7 @@ fprintf('True MI: %0.4f, KNN based MI: %.4f, H(X) = %.4f, H(Y) = %.4f\n', 0, MI,
 
 %% Should be non-zero
 
-N = 5E3; nlevel = 3; k = 50;
+N = 50E3; nlevel = 3; k = 50;
 Y = randi(nlevel, N, 1);
 X = randn(N,1)*100;  X(Y== nlevel) = X(Y==nlevel) + 1000;
 
